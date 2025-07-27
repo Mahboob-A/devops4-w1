@@ -1,0 +1,23 @@
+name: Read Hello
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+    read-file:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Read and Print hello.txt
+              run: |
+                if [-f hello.txt ]; then
+                  echo "Content of hello.txt:"
+                  cat hello.txt
+                else
+                  echo "Error: hello.txt does not exist in the repository root."
+                fi
+
