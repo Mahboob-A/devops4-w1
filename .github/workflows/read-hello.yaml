@@ -1,11 +1,11 @@
-name: Read Hello
+name: Read Hello File
 
 on:
     push:
         branches:
             - main
 jobs:
-    read-file:
+    read-hello-file:
         runs-on: ubuntu-latest
 
         steps:
@@ -19,5 +19,6 @@ jobs:
                   cat hello.txt
                 else
                   echo "Error: hello.txt does not exist in the repository root."
+                  exit 1
                 fi
 
